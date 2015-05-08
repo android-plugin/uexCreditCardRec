@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+ 
+    <!-- 信用卡识别 -->
+    <string name="cardioScanHintTop">将信用卡放入框内</string>
+    <string name="cardioScanHintBottom">它将会自动识别</string>
+    <string name="cardioScanKeyboardButton">手动输入</string>
+    
+    <string name="cardioScanErrorLibLoadFail">设备相机访问错误</string>
+    <string name="cardioScanErrorNoDeviceSupport">设备相机不支持读取信用卡信息</string>
+    <string name="cardioScanErrorCameraConnectFail">设备相机不可用</string>
+    <string name="cardioScanErrorUnexpectedCameraFail">设备打开相机时未知错误</string>
+    <string name="cardioScanErrorWhoops">糟糕！无法读取信用卡信息</string>
+    <string name="cardioScanErrorUnauthorized">"此应用未被授权"</string>
+
+    <string name="cardioEntryCardNumber">卡号</string>
+    <string name="cardioEntryExpiry">期限</string>
+    <string name="cardioEntryCVV">CVV</string>
+    <string name="cardioEntryZip">Zip</string>
+    <string name="cardioEntryZipHint">12345</string>
+    
+    <string name="cardioConfirmButton">确定</string>
+    <string name="cardioDoneButton">完成</string>
+    <string name="cardioCancelButton">取消</string>
+
+    <string name="cardioWhoops">糟糕!</string>
+    
+</resources>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<uexplugins>
+    <plugin        uexName="uexCreditCardRec" version="3.0.3" build="3">
+         <info>3:更新了card.io的库，提高兼容性</info>         <build>2:修复不收集cvv信息的问题，以及返回的卡号只有后四位的问题</build>         <build>1:修复在某些平台下会崩溃的问题，现仅支持arm平台</build>         <build>0:信用卡识别插件</build>
+    </plugin>
+</uexplugins>

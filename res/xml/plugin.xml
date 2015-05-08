@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uexplugins>
+    <!-- plugin test -->
+	<plugin
+        className="com.myplugin.UexTestObject" uexName="uexDemo" >
+        <method name="test_startActivityForResult" />
+        <method name="test_vibrator" />
+        <method name="test_showInputDialog" />
+        <method name="test_addMyViewToWindow" />
+        <method name="test_removeMyViewFromWindow" />
+    </plugin>
+	<plugin
+        className="org.zywx.wbpalmstar.plugin.uexCreditCardRec.EUExCreditCardRec" uexName="uexCreditCardRec" >
+        <method name="openCreditCardRec" />
+    </plugin>
+	
+</uexplugins>
