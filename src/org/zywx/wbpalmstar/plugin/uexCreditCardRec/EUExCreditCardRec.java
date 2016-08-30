@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.zywx.wbpalmstar.engine.EBrowserView;
 import org.zywx.wbpalmstar.engine.universalex.EUExBase;
+import org.zywx.wbpalmstar.engine.universalex.EUExCallback;
 
 import io.card.payment.CardIOActivity;
 import io.card.payment.CreditCard;
@@ -91,7 +92,7 @@ public class EUExCreditCardRec extends EUExBase {
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("cardNumber", scanResult.getFormattedCardNumber());
-                    callbackToJs(Integer.parseInt(callbackFuncId), false, jsonObject);
+                    callbackToJs(Integer.parseInt(callbackFuncId), false, EUExCallback.F_C_SUCCESS, jsonObject);
                 }catch (JSONException e) {
 
                 }
@@ -104,7 +105,7 @@ public class EUExCreditCardRec extends EUExBase {
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("cardNumber", 0);
-                    callbackToJs(Integer.parseInt(callbackFuncId), false, jsonObject);
+                    callbackToJs(Integer.parseInt(callbackFuncId), false, EUExCallback.F_C_FAILED, jsonObject);
                 }catch (JSONException e) {
 
                 }
