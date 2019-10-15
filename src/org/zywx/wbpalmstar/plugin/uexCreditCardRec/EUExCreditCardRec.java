@@ -3,6 +3,7 @@ package org.zywx.wbpalmstar.plugin.uexCreditCardRec;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,7 +16,7 @@ import io.card.payment.CreditCard;
 
 public class EUExCreditCardRec extends EUExBase {
 
-	private int MY_SCAN_REQUEST_CODE = 100; // arbitrary int
+	private int MY_SCAN_REQUEST_CODE = 1002; // arbitrary int
 	public static final String func_on_cbLockAppState = "javascript:uexCreditCardRec.callBackCreditCard";
 	public static final String cbCreditCardFunName = "javascript:uexCreditCardRec.cbCreditCard";
 	public EUExCreditCardRec(Context context, EBrowserView inparent) {
@@ -32,6 +33,7 @@ public class EUExCreditCardRec extends EUExBase {
 		if (params.length < 1) {
 			return;
 		}
+//		registerActivityResult();
 		if (!TextUtils.isEmpty(params[0])) {
 			onScanPress(params[0]);
 		}
@@ -45,11 +47,11 @@ public class EUExCreditCardRec extends EUExBase {
 		// e.g. android:onClick="onScanPress"
 		Intent scanIntent = new Intent(mContext, CardIOActivity.class);
 		// required for authentication with card.io
-		scanIntent.putExtra(CardIOActivity.EXTRA_APP_TOKEN, token);
+		scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_POSTAL_CODE, false);
 		// customize these values to suit your needs.
-		scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, false); // default:
+		scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true); // default:
 		scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false); // default:
-		scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_ZIP, false); // default:
+//		scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_ZIP, false); // default:
 		scanIntent.putExtra(CardIOActivity.EXTRA_USE_CARDIO_LOGO, true); // default:
 		// false
 		// hides the manual entry button
@@ -75,6 +77,7 @@ public class EUExCreditCardRec extends EUExBase {
 			// Do something with the raw number, e.g.:
 			// myService.setCardNumber( scanResult.cardNumber );
 
+			Log.e("TAG","============"+resultStr);
 			if (scanResult.isExpiryValid()) {
 				resultStr += "Expiration Date: " + scanResult.expiryMonth + "/"
 						+ scanResult.expiryYear + "\n";
@@ -85,13 +88,14 @@ public class EUExCreditCardRec extends EUExBase {
 						+ " digits.\n";
 			}
 
-			if (scanResult.zip != null) {
-				resultStr += "Zip: " + scanResult.zip + "\n";
-			}
+//			if (scanResult.zip != null) {
+//				resultStr += "Zip: " + scanResult.zip + "\n";
+//			}
             if (null != callbackFuncId) {
                 try {
                     JSONObject jsonObject = new JSONObject();
-                    jsonObject.put("cardNumber", scanResult.getFormattedCardNumber());
+					String  carID=scanResult.getFormattedCardNumber();
+                    jsonObject.put("cardNumber", carID);
                     callbackToJs(Integer.parseInt(callbackFuncId), false, EUExCallback.F_C_SUCCESS, jsonObject);
                 }catch (JSONException e) {
 
