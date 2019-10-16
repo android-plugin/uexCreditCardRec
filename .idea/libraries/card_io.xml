@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="card.io">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/card.io.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

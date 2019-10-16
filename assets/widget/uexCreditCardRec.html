@@ -23,8 +23,12 @@
 	}
 
     function createCreditCardRec(){
+
+
         var tokenStr = "f06a7eca39134918a18dc4d7c45ee49f";
-        uexCreditCardRec.openCreditCardRec(tokenStr,function(data){
+        uexCreditCardRec.openCreditCardRec(tokenStr,function(code,data){
+
+            console.info(JSON.stringify(data)+"==========");
             alert("callback:" + "cardNumber:"+ data.cardNumber);
             document.getElementById('cardNum').innerHTML = data.cardNumber;
         });
